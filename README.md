@@ -89,7 +89,7 @@ You can use the included Postman collection to test the API endpoints.
 
 Open Postman
 
-Import the collection file (url-shortener.postman_collection.json) from the root of this project.
+Import the collection file (URL Shortener Collection.postman_collection.json) from the root of this project.
 
 Use the POST /shorten and GET /:code endpoints to test.
 

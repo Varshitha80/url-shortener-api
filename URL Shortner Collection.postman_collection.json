@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "bfbe3bd7-b6e1-4238-aece-1f1a3f8babf5",
+		"name": "URL Shortner Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39300066"
+	},
+	"item": [
+		{
+			"name": "POST Shorten URL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"url\": \"https://www.google.com\",\r\n  \"expiresIn\": 1000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/shorten",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"shorten"
+					]
+				}
+			},
+			"response": [
+				  {
+          "name": "Success - Short URL Created",
+          "originalRequest": {},
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"shorturl\": \"https://short.ly/kwC7Ac\"\n}",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        }
+			]
+		},
+		{
+			"name": "GET Redirect Short URL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/kwC7Ac",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"kwC7Ac"
+					]
+				}
+			},
+			"response": [
+				   {
+          "name": "Redirect to Original URL",
+          "originalRequest": {},
+          "status": "OK",
+          "code": 200,
+          "body": "<!-- HTML content of google.com shown here -->",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/html"
+            }
+          ]
+        }
+			]
+		},
+		{
+			"name": "POST Validate URL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"url\": \"facebook.com\",\r\n  \"expiresIn\": 1000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/shorten",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"shorten"
+					]
+				}
+			},
+			"response": [
+				    {
+          "name": "POST Validate URL",
+          "originalRequest": {},
+          "status": "Bad Request",
+          "code": 400,
+          "body": "{\n  \"error\": \"Invalid URL format\"\n}",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        }
+			]
+		}
+	]
+}
