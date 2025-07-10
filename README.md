@@ -137,11 +137,3 @@ License
 This project is licensed under the MIT License.
 
 Let me know when you're ready to publish it on GitHub or if you'd like me to write a one-line description for your repo too!
-
-
-
-
-
-
-
-Ask ChatGPT
